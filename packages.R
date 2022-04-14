@@ -1,0 +1,8 @@
+library("tidyverse")
+library("mosaic")
+library("mosaicData")
+library("mosaicCalc")
+library("ggformula")
+library("ggplot2")
+library("shiny")
+library("plotly")

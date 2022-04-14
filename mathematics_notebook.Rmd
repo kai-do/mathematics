@@ -1,0 +1,50 @@
+---
+title: "Mathematics Notebook"
+output: 
+  html_notebook:
+    theme: flatly
+runtime: shiny
+---
+```{r packages, include=FALSE}
+source("packages.R")
+```
+
+
+Linear Equation in slope intercept form:
+$$
+y = mx + b
+$$
+Example:
+$$
+y = 20x + 17
+$$
+$m$ represents the slope
+<br>
+$b$ represents $y$ - intercept
+
+
+```{r}
+#R Code:
+
+m <- 20
+b <- 17
+
+#slice_plot(m * x + b ~ x, domain(x = range(0, 10)))
+```
+
+```{r}
+inputPanel(
+ shiny::numericInput(inputId = "m", label = "m", value = m, step = 1),
+ shiny::numericInput(inputId = "b", label = "b", value = b, step = 1)
+)
+```
+
+```{r}
+output$linear_plot <- renderPlot({
+  #slice_plot(input$m * x + input$b ~ x, domain(x = range(0, 10)))
+  plot(input$m, input$b)
+})
+
+plotOutput("linear_plot", height = "600px")
+```
+
